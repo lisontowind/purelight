@@ -259,7 +259,7 @@
 }
 
 #layouts>.fn__flex:nth-child(3){
-    overflow:hidden;
+    overflow-x:hidden;
 }
 
 #layouts>.fn__flex:nth-child(3)>.fn__flex-column:first-child>.fn__flex:not(.fn__none){
@@ -386,6 +386,9 @@
 }
 .sy__backlink>.block__icons:nth-child(3){
     border-top: 1px solid #00000020;
+}
+.sy__backlink{
+    overflow-y: hidden;
 }
 /* .block__icons{
     border-bottom: 1px solid #ffffff20;
