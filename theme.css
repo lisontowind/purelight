@@ -301,7 +301,7 @@
 }
 
 .graph {
-    background-color: #dddddd;
+    background-color: var(--b3-theme-background-light)
 }
 
 .b3-dialog--open .b3-dialog__container {
@@ -782,4 +782,20 @@ mark {
 
 .layout__center .layout__resize--lr {
     border-left: 1px solid #00000010;
+}
+
+.layout__resize::after {
+    background-color:#00000000;
+}
+
+.layout__wnd--active .layout-tab-bar .item--focus {
+    box-shadow: #00000000;
+}
+
+.layout__resize::after {
+    background-color:#00000000;
+}
+
+.layout__wnd--active .layout-tab-bar .item--focus {
+    box-shadow: 0 0 0 0;
 }
