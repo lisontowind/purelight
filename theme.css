@@ -238,15 +238,15 @@
 }
 
 .toolbar {
-    border-bottom: 1px solid #00000020;
+    border-bottom: 1px solid #cccccc;
 }
 
 #dockLeft{
-    border-right: 1px solid #00000020;
+    border-right: 1px solid #cccccc;
 }
 
 #dockRight{
-    border-left: 1px solid #00000020;
+    border-left: 1px solid #cccccc;
 }
 
 .layout-tab-bar .item--focus {
@@ -263,11 +263,11 @@
 }
 
 #layouts>.fn__flex:nth-child(3)>.fn__flex-column:first-child>.fn__flex:not(.fn__none){
-    border-right: 1px solid #00000020;
+    border-right: 1px solid #cccccc;
     box-sizing: border-box;
 }
 #layouts>.fn__flex:nth-child(3)>.fn__flex-column:last-child>.fn__flex:not(.fn__none){
-    border-left: 1px solid #00000020;
+    border-left: 1px solid #cccccc;
     box-sizing: border-box;
 }
 .layout-tab-bar {
@@ -368,7 +368,7 @@
 }
 
 .graph__loading{
-    background-color: #00000020;
+    background-color: #cccccc;
 }
 
 .b3-tab-container {
@@ -379,13 +379,13 @@
     border-bottom: 1px solid #00000040;
 }
 .fn__flex-column>.fn__flex-1.fn__flex:last-child{
-    border-top: 1px solid #00000020;
+    border-top: 1px solid #cccccc;
 }
 .b3-list.fn__flex-column{
-    border-top: 1px solid #00000020;
+    border-top: 1px solid #cccccc;
 }
 .sy__backlink>.block__icons:nth-child(3){
-    border-top: 1px solid #00000020;
+    border-top: 1px solid #cccccc;
 }
 .sy__backlink{
     overflow-y: hidden;
@@ -798,4 +798,38 @@ mark {
 
 .layout__wnd--active .layout-tab-bar .item--focus {
     box-shadow: 0 0 0 0;
+}
+
+/*修复*/
+
+.protyle-wysiwyg [data-node-id].li>[data-node-id]:before {
+    border-left: 1px solid #cccccc;
+}
+
+.protyle-wysiwyg [data-node-id].li>[data-type="NodeHeading"]:before{
+    left: -21px;
+}
+
+#dockTop{
+    border-bottom: 1px solid #cccccc;
+}
+
+#dockBottom{
+    border-top: 1px solid #cccccc;
+}
+
+.dock__item:hover{
+    background-color:#00000010;
+} 
+
+.layout__resize:not(.layout__resize--lr):after {
+    background-color:#cccccc;
+}
+.b3-typography img, .protyle-wysiwyg img {
+    border-radius: 4px;
+}
+
+::selection{
+    color: rgb(255, 255, 255);
+    background: rgb(101, 131, 156);
 }
