@@ -12,9 +12,9 @@
   --b3-theme-primary-lighter: rgba(66, 133, 244, 0.38);
   --b3-theme-primary-lightest: rgba(66, 133, 244, 0.12);
   --b3-theme-secondary: #f3a92f;
-  --b3-theme-background: #f8f9fa;
-  --b3-theme-background-light: #dfe0e1;
-  --b3-theme-surface: #f3f3f3;
+  --b3-theme-background: #dddddd;
+  --b3-theme-background-light: #dddddd;
+  --b3-theme-surface: #dddddd;
   --b3-theme-surface-light: rgba(243, 243, 243, .86);
   --b3-theme-error: #d23f31;
 
@@ -54,13 +54,13 @@
     
         /* 卡片背景 */
         --b3-card-error-color: rgb(97, 26, 21);
-        --b3-card-error-background: rgb(253, 236, 234);
+        --b3-card-error-background: rgb(255, 212, 207);
         --b3-card-warning-color: rgb(102, 60, 0);
-        --b3-card-warning-background: rgb(255, 244, 229);
+        --b3-card-warning-background: rgb(255, 218, 167);
         --b3-card-info-color: rgb(13, 60, 97);
-        --b3-card-info-background: rgb(232, 244, 253);
+        --b3-card-info-background: rgb(188, 226, 255);
         --b3-card-success-color: rgb(30, 70, 32);
-        --b3-card-success-background: rgb(237, 247, 237);
+        --b3-card-success-background: rgb(191, 255, 191);
     
         /* 自定义文字 */
         --b3-font-color1: var(--b3-card-error-color);
@@ -91,8 +91,8 @@
         --b3-font-background13: var(--b3-theme-on-background);
     
         /* 动画效果 */
-        --b3-transition: all .15s cubic-bezier(0, 0, .2, 1) 0ms;
-        --b3-width-transition: width .15s cubic-bezier(0, 0, .2, 1) 0ms;
+        --b3-transition: all .15s cubic-bezier(.5, 0, .5, 1) 0ms;
+        --b3-width-transition: width .15s  cubic-bezier(.5, 0, .5, 1) 0ms;
     
         /* 阴影 */
         --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
@@ -197,6 +197,17 @@
         */
     --custom-quote-l: "⸢";
     --custom-quote-r: "⸥";
+
+    /* 列表颜色 */
+    --b3-border-color: rgba(230, 230, 230, .1);
+	--surface-border-color: rgba(69, 74, 77);
+	--b3-color--square: var(--b3-border-color);
+	--b3-border-daotu: 2px solid var(--surface-border-color);
+	--b3-block-daotu:var(--b3-theme-surface-light);
+
+      /* ———————————— 列表2看板 ———————————— */
+      --kbline-boarditem-minwidth: 14rem;                /*看板卡片的最小宽度*/
+      --kb--li--background:#eeeeee;
 }
 
 /* PDF */
@@ -237,9 +248,9 @@
     z-index: 2;
 }
 
-.toolbar {
+/* .toolbar {
     border-bottom: 1px solid #cccccc;
-}
+} */
 
 #dockLeft{
     border-right: 1px solid #cccccc;
@@ -561,7 +572,7 @@ mark {
     counter-reset: h1-count 0;
 } */
 
-.protyle-wysiwyg,
+/* .protyle-wysiwyg,
 .b3-typography {
     counter-reset: h1-count 0 h2-count 0 h3-count 0 h4-count 0 h5-count 0 h6-count 0;
 }
@@ -647,7 +658,7 @@ mark {
     float: left;
     font-size: var(--custom-h-num-font-size);
     content: counter(h1-count) "."counter(h2-count) "."counter(h3-count) "."counter(h4-count) "."counter(h5-count) "."counter(h6-count) "\00A0";
-}
+} */
 
 .b3-typography li>h1:before,
 .b3-typography li>h2:before,
@@ -752,7 +763,10 @@ mark {
 }
 
 ::-webkit-scrollbar{
-    width: 4px;
+    width: 6px;
+}
+.fn__flex-1 {
+    overflow-y: overlay;
 }
 
 .toolbar__item:not(.toolbar__item--action1):hover {
@@ -832,4 +846,461 @@ mark {
 ::selection{
     color: rgb(255, 255, 255);
     background: rgb(101, 131, 156);
+}
+.viewer-move{
+
+    background-image: linear-gradient(45deg, #aaaaaa 25%, transparent 25%, transparent 75%, #aaaaaa 75%, #aaaaaa), 
+    linear-gradient(45deg, #aaaaaa 26%, transparent 26%, transparent 74%, #aaaaaa 74%, #aaaaaa);
+    background-image: -webkit-linear-gradient(45deg, #aaaaaa 25%, transparent 25%, transparent 75%, #aaaaaa 75%, #aaaaaa), 
+    -webkit-linear-gradient(45deg, #aaaaaa 26%, transparent 26%, transparent 74%, #aaaaaa 74%, #aaaaaa);
+	background-image: -moz-linear-gradient(45deg, #aaaaaa 24%, transparent 24%, transparent 76%, #aaaaaa 76%, #aaaaaa), 
+    -moz-linear-gradient(45deg, #aaaaaa 26%, transparent 26%, transparent 74%, #aaaaaa 74%, #aaaaaa);
+    background-image: -o-linear-gradient(45deg, #aaaaaa 25%, transparent 25%, transparent 75%, #aaaaaa 75%, #aaaaaa), 
+    -o-linear-gradient(45deg, #aaaaaa 25%, transparent 25%, transparent 75%, #aaaaaa 75%, #aaaaaa);
+    background-size: 20px 20px;
+    background-position: 0 0, 50px 50px;
+    background-color: #888888;
+
+}
+#searchFilterPanel{
+    border-left: 1px solid #cccccc;
+}
+
+.search__header .b3-text-field--text {
+    background-color: #00000000;
+}
+.b3-tab-container>.fn__flex-column>.layout-tab-bar{
+        background-color: #00000000;
+}
+
+.b3-tab-container>.fn__flex-column>.layout-tab-bar .item {
+    margin-right: 1px;
+}
+
+/* 展开优化 */
+.protyle-wysiwyg div[fold="1"][data-type="NodeHeading"]:before {
+    content: "";
+    height: 100%;
+    background: var(--b3-border-color);
+    left: -18px;
+    top: 0%;
+    border-radius: 3px;
+    margin-top: 0%;
+}
+
+/* 过长子标题名显示样式 */
+/* .sy__outline .b3-list-item__text {
+    display: var(--custom-outline-display);
+} */
+
+/* 区分大纲中的各级标题 */
+
+/* 文档标题 */
+.sy__outline ul.b3-list.b3-list--background [data-type="NodeDocument"][data-treetype="outline"] .b3-list-item__text,
+.sy__outline ul.b3-list.b3-list--background [data-type="NodeDocument"][data-treetype="outline"] {
+    color: var(--b3-theme-on-background);
+}
+
+.sy__outline ul.b3-list.b3-list--background [data-subtype="h1"] .b3-list-item__text,
+.sy__outline ul.b3-list.b3-list--background [data-subtype="h1"] {
+    color: var(--custom-h1-color);
+}
+
+.sy__outline ul.b3-list.b3-list--background [data-subtype="h2"] .b3-list-item__text,
+.sy__outline ul.b3-list.b3-list--background [data-subtype="h2"] {
+    color: var(--custom-h2-color);
+}
+
+.sy__outline ul.b3-list.b3-list--background [data-subtype="h3"] .b3-list-item__text,
+.sy__outline ul.b3-list.b3-list--background [data-subtype="h3"] {
+    color: var(--custom-h3-color);
+}
+
+.sy__outline ul.b3-list.b3-list--background [data-subtype="h4"] .b3-list-item__text,
+.sy__outline ul.b3-list.b3-list--background [data-subtype="h4"] {
+    color: var(--custom-h4-color);
+}
+
+.sy__outline ul.b3-list.b3-list--background [data-subtype="h5"] .b3-list-item__text,
+.sy__outline ul.b3-list.b3-list--background [data-subtype="h5"] {
+    color: var(--custom-h5-color);
+}
+
+.sy__outline ul.b3-list.b3-list--background [data-subtype="h6"] .b3-list-item__text,
+.sy__outline ul.b3-list.b3-list--background [data-subtype="h6"] {
+    color: var(--custom-h6-color);
+}
+
+
+/* 修复 */
+.layout__wnd--active .layout-tab-bar .item--focus{
+    box-shadow: 0 0 0 0 !important;
+}
+
+.layout{
+    border-top: 1px solid #cccccc;
+} 
+
+.dock#dockLeft { 
+    border-top: 1px solid #cccccc !important;
+    border-right: 1px solid #cccccc !important;
+}
+
+
+.dock#dockTop{
+    border-top: 1px solid #cccccc;
+    border-bottom: 0px;
+}
+
+#dockBottom{
+    border-top: 1px solid #cccccc;
+}
+
+.body--win32>.fn__flex-1:nth-child(5){
+    overflow: hidden;
+}
+#layouts > .fn__flex:nth-child(3) {
+    overflow-y: hidden;
+}
+#layouts >.layout__resize:nth-child(5){
+    margin: -4px 0;
+}
+.toolbar{
+    margin-bottom: 1px;
+}
+
+.layout-tab-bar .item:hover:not(.item--focus){
+    border-radius: 0 0 0 0;
+}
+
+/*————————————————————————列表转导图————————————————————————*/
+/*整个导图取消缩进*/
+.protyle-wysiwyg *[custom-f="dt"] .li .list{
+    padding: 0px;
+    margin: 0px;
+	transition: all 0.5s;
+} 
+.protyle-wysiwyg *[custom-f="dt"].list{
+	width:100%-50!important;
+	overflow-x:auto;/*溢出滚动*/
+	padding-bottom:30px!important;
+	margin:10px 4px;
+}
+/*子项设偏移调整*/
+.protyle-wysiwyg *[custom-f="dt"] [data-node-id].li>[data-node-id]{
+    margin-left: 20px !important;
+	margin-right: -24px !important;
+}
+.protyle-wysiwyg *[custom-f="dt"] [data-node-id].li>.list{
+	padding-left: 20px;
+}
+/*文字设置居中*/
+.protyle-wysiwyg *[custom-f="dt"] .li {
+	display: flex;
+}
+.protyle-wysiwyg *[custom-f="dt"] .li .p,.protyle-wysiwyg *[custom-f="dt"] .li [data-type="NodeHeading"] {
+	display: flex;
+	align-items: center;
+	left:6px;
+    margin: 0;
+	flex-shrink:0;/*不压缩宽度*/
+}
+.protyle-wysiwyg *[custom-f="dt"] .li [data-type="NodeHeading"]>[spellcheck="false"]:after{
+	display:none;
+}/*取消标题层级提示*/
+.protyle-wysiwyg *[custom-f="dt"] .li div{
+	border-right:10px solid transparent;
+}
+/*文字框*/
+.protyle-wysiwyg *[custom-f="dt"] .li div>div[spellcheck="false"]{
+	margin-left:-8px;
+	padding:5px 0 5px 10px;
+	margin-top:2px;
+	background-color:var(--b3-block-daotu);
+	border-radius:3px;
+	box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
+	max-width:15vw;
+
+}
+.protyle-wysiwyg *[custom-f="dt"] .li[data-subtype="t"]>[data-node-id]>div[spellcheck="false"]
+{
+	padding:5px 0px 5px 35px;
+}
+.protyle-wysiwyg *[custom-f="dt"] .li[data-subtype="o"]>[data-node-id]>div[spellcheck="false"]
+{
+	padding:5px 10px 5px 25px;
+}
+/*去除竖线*/
+.list[custom-f="dt"][data-node-id] .li>:before {
+    display: none;
+}
+
+/*圆点符号居中对齐*/
+.protyle-content *[custom-f~=dt] [data-subtype="u"][data-node-id].li>div.protyle-action {
+	top:50%;
+	margin-left:-18px;
+}/*无序列表*/
+.protyle-content *[custom-f~=dt] [data-subtype="o"][data-node-id].li>div.protyle-action {
+	top:calc(50% + 1px);
+	margin-left:17px;
+}/*有序列表*/
+.list[custom-f="dt"][data-node-id] .protyle-action{
+    top:calc(50% + 1px);
+	left:3px;
+    position: absolute;
+    transform: translate(0, -50%);
+    z-index: 2;
+}
+.protyle-wysiwyg *[custom-f="dt"] [data-subtype="u"][data-node-id].li>.protyle-action:after{
+	left:37px;
+}
+.list[custom-f="dt"][data-node-id] .protyle-action svg{
+	left:20px;
+}
+
+/*前继承线*/
+.protyle-wysiwyg *[custom-f="dt"] .li::before{   
+    content: '';   
+    position: absolute;  
+	top: 50%;   
+    border-top:var(--b3-border-daotu);    
+    width: 20px;  
+	height: 50%;     
+}
+/*上竖线*/
+.protyle-wysiwyg *[custom-f="dt"] .li::before{   
+    bottom: 50%;    
+    border-left:var(--b3-border-daotu);   
+}
+/*下竖线*/
+.protyle-wysiwyg *[custom-f="dt"] .li::after{   
+    content: '';   
+    position: absolute;  
+	bottom: 50%;   
+    border-left:var(--b3-border-daotu);  
+    width: 20px;  
+	height: 50%; 
+}
+/*单个子项直线*/
+.protyle-wysiwyg *[custom-f="dt"] .list>.li:first-child:nth-last-child(2)::after{   
+	 border-radius:0px; 
+	 width: 22px; 
+	 margin-bottom:-2px;
+}
+/*单子项居中*/
+.protyle-wysiwyg *[custom-f="dt"] .list>.li:first-child:nth-last-child(2){
+    top: 50%;
+    transform: translate(0, -50%);
+}
+/*取消多余线条*/
+.protyle-wysiwyg *[custom-f="dt"] .li:first-child::after,.protyle-wysiwyg *[custom-f="dt"]  .li:nth-last-child(2)::before{   
+    border:none!important;    
+}
+/*上框线*/
+.protyle-wysiwyg *[custom-f="dt"] .li:first-child::before{   
+    border-radius:5px 0 0 0 ;    
+}  
+/*下框线*/
+.protyle-wysiwyg *[custom-f="dt"] .li:nth-last-child(2)::after{   
+    border-bottom:var(--b3-border-daotu)!important;    
+    border-radius:0 0 0 5px;    
+}
+/*后继承线*/
+.list[custom-f="dt"] .list::after{   
+    content: '';   
+    position: absolute; 
+	left: 0; 
+	top: 50%;   
+    border-top:var(--b3-border-daotu);   
+    width: 20px; 
+	height: 0;  
+}
+/*取消根目录线*/
+div *[custom-f="dt"]>[data-type="NodeListItem"]::before,
+div *[custom-f="dt"]>[data-type="NodeListItem"]::after{   
+	display: none;
+}  
+/*————————————————————————————————————————————————————————————————————————*/
+
+
+/* -----------------------------------------------列表转化为表格------------------------------------------- */
+.list[data-node-id][data-type="NodeList"][custom-f="bg"]{
+	display:table-cell;
+	padding:0 50px 0 5px;
+}
+/* ————————————————————所有子项目的表格（除去第一列其余的列），包含溢出的空白部分，所以才会有边框—————————————————————— */
+
+.protyle-wysiwyg *[custom-f="bg"] .li .list {
+    padding: 0px;
+    margin: 0px !important;
+	width:100%;
+    outline: 1px solid var(--surface-border-color);
+}
+
+/* ————————————————————对所有子列表项设置格式———————————————————— */
+.protyle-wysiwyg *[custom-f="bg"] .li {
+	display: flex;
+    outline:  1px solid var(--surface-border-color);
+    background-color: var(--b3-theme-background);
+}
+
+/* ————————————————————调整每个子列表项右侧边距———————————————————— */
+.protyle-wysiwyg *[custom-f="bg"] .li>div {
+    margin-right: 20px;
+}
+
+/* ————————————————————大神增加代码———————————————————— */
+.protyle-wysiwyg *[custom-f="bg"] [data-node-id].li>[data-node-id] {
+    margin-left: 6px !important;
+}
+
+/* ————————————————————对符号后文字设置格式———————————————————— */
+.protyle-wysiwyg *[custom-f="bg"] .p {
+    flex: 1;
+	left:18px;
+    text-align: left;
+    align-items: center;
+    display: flex;
+    min-width: 120px;
+	min-height: 30px;
+	height:auto;
+    margin: 0;
+}
+
+/* ————————————————————去除小竖线———————————————————— */
+.list[data-node-id][data-type="NodeList"][custom-f="bg"] .li>:before {
+    display: none;
+}
+
+/* ————————————————————设置前面的符号居中对齐———————————————————— */
+.list[data-node-id][data-type="NodeList"][custom-f="bg"] .protyle-action {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+	opacity:0.3;
+}
+/*单子项居中*/
+
+.protyle-wysiwyg *[custom-f="bg"] .list>.li:first-child:nth-last-child(2){
+    top: 50%;
+    transform: translate(0, -50%);
+	height:100%;
+}
+
+.protyle-wysiwyg *[custom-f="bg"] .li [data-type="NodeHeading"]>[spellcheck="false"]:after{
+	display:none;
+}/*取消标题层级提示*/
+
+
+/* ---------------------------------------------------------列表转化为表格 END-------------------------------------------------- */
+
+/*————————————————————列表转看板————————————————————*/
+
+.protyle-wysiwyg .list[custom-f~=kb][data-node-id][data-type="NodeList"]
+{
+    display: flex;
+}
+.protyle-wysiwyg *[custom-f~=kb].list[data-node-index]{
+	width:100%!important;
+	overflow-x:auto;/*溢出滚动*/
+	padding-bottom:50px;
+}
+/* ————————————————————所有子项目的表格（除去第一列其余的列），包含溢出的空白部分，所以才会有边框—————————————————————— */
+.protyle-wysiwyg *[custom-f~=kb] .li .list{
+    min-width: var(--kbline-boarditem-minwidth);
+    border-radius: 3px;
+    transform: translate(-30px, 0);
+}
+
+
+/* ————————————————————对所有子列表项设置格式———————————————————— */
+
+.protyle-wysiwyg *[custom-f~=kb] .li .li{
+    border-radius: 3px;
+    padding: 0.4em 0 0.1em 0 ;
+    margin-bottom: 6px; 
+	background-color:var(--kb--li--background);
+	box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
+}
+
+/*只处理每个列表的第一行*/
+.protyle-wysiwyg *[custom-f~=kb][data-node-index] > div > div:nth-child(2),
+.protyle-wysiwyg .sb>*[custom-f~=kb] > div > div:nth-child(2)
+{
+	min-width: var(--kbline-boarditem-minwidth);
+    border-radius: 3px;
+	padding:9px 0px 11px 30px;
+	left:-30px;
+    margin-bottom: 10px;
+}
+.protyle-wysiwyg *[custom-f~=kb][data-node-index] > div > div:nth-child(2)[data-type="NodeHeading"],
+.protyle-wysiwyg .sb>*[custom-f~=kb] > div > div:nth-child(2)[data-type="NodeHeading"]
+{
+
+	padding:5px 0px 7px 30px;
+}
+.protyle-wysiwyg *[custom-f~=kb] .li [data-type="NodeHeading"]>[spellcheck="false"]:after{
+	display:none;
+}/*取消标题层级提示*/
+
+/*标题行循环颜色*/
+.protyle-wysiwyg *[custom-f~=kb][data-node-index] > div:nth-child(4n-3) > div:nth-child(2),
+.protyle-wysiwyg .sb>*[custom-f~=kb] > div:nth-child(4n-3) > div:nth-child(2){
+    background-color:var(--b3-card-error-background);
+}
+.protyle-wysiwyg *[custom-f~=kb][data-node-index] > div:nth-child(4n-2) > div:nth-child(2),
+.protyle-wysiwyg .sb>*[custom-f~=kb] > div:nth-child(4n-2) > div:nth-child(2){
+    background-color:var(--b3-card-warning-background);
+}
+.protyle-wysiwyg *[custom-f~=kb][data-node-index] > div:nth-child(4n-1) > div:nth-child(2),
+.protyle-wysiwyg .sb>*[custom-f~=kb] > div:nth-child(4n-1) > div:nth-child(2){
+    background-color:var(--b3-card-info-background);
+}
+.protyle-wysiwyg *[custom-f~=kb][data-node-index] > div:nth-child(4n) > div:nth-child(2),
+.protyle-wysiwyg .sb>*[custom-f~=kb] > div:nth-child(4n) > div:nth-child(2){
+    background-color:var(--b3-card-success-background);
+}
+
+/*只处理每个列表第一行的点*/
+.protyle-wysiwyg *[custom-f~=kb][data-node-index] > div > div:nth-child(1),
+.protyle-wysiwyg .sb>*[custom-f~=kb] > div > div:nth-child(1)
+{
+    transform: translate(4px,5px);
+	z-index:2;
+}
+
+/* ————————————————————去除小竖线———————————————————— */
+.list[custom-f="kb"][data-node-id] .li>:before {
+    display: none;
+}
+
+/* 对除了第一层之外的子列表 .protyle-action 移动 */
+.protyle-wysiwyg *[custom-f~=kb] .li .list .protyle-action{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 3px;
+}
+
+
+
+/*————————————————————列表转化看板 END————————————————————*/
+
+
+.protyle-gutters{
+	transition: all 200ms ease-out;
+}
+
+
+
+.b3-menu{
+	animation: menu 0.15s ease-in-out;
+}
+
+
+@keyframes menu {
+	0% {opacity:0;max-height:0;}
+	50% {opacity:0.5;max-height:50%;}
+	100% {opacity:1;max-height:100%
+	 }
 }
