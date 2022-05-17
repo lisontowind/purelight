@@ -252,12 +252,15 @@
     border-bottom: 1px solid #cccccc;
 } */
 
-#dockLeft{
+.dock#dockLeft{
     border-right: 1px solid #cccccc;
+    box-sizing: border-box;
 }
 
-#dockRight{
+.dock#dockRight{
+    box-sizing: border-box;
     border-left: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
 }
 
 .layout-tab-bar .item--focus {
@@ -270,7 +273,7 @@
 }
 
 #layouts>.fn__flex:nth-child(3){
-    overflow-x:hidden;
+    overflow-x:hidden !important;
 }
 
 #layouts>.fn__flex:nth-child(3)>.fn__flex-column:first-child>.fn__flex:not(.fn__none){
@@ -399,7 +402,7 @@
     border-top: 1px solid #cccccc;
 }
 .sy__backlink{
-    overflow-y: hidden;
+    overflow-y: hidden !important;
 }
 /* .block__icons{
     border-bottom: 1px solid #ffffff20;
@@ -419,7 +422,7 @@
 
 }
 :hover::-webkit-scrollbar-thumb{
-    background-color: #00000013;
+    background-color: #00000020;
 }
 .block__icons--active{
     background-color: #00000000;
@@ -765,8 +768,9 @@ mark {
 ::-webkit-scrollbar{
     width: 6px;
 }
-.fn__flex-1 {
-    overflow-y: overlay;
+
+.fn__flex-1:not(.body--win32>.fn__flex-1:nth-child(5)) {
+    overflow-y: overlay !important;
 }
 
 .toolbar__item:not(.toolbar__item--action1):hover {
@@ -957,10 +961,11 @@ mark {
 }
 
 .body--win32>.fn__flex-1:nth-child(5){
-    overflow: hidden;
+    overflow: hidden !important;
 }
+
 #layouts > .fn__flex:nth-child(3) {
-    overflow-y: hidden;
+    overflow-y: hidden !important;
 }
 #layouts >.layout__resize:nth-child(5){
     margin: -4px 0;
@@ -972,6 +977,7 @@ mark {
 .layout-tab-bar .item:hover:not(.item--focus){
     border-radius: 0 0 0 0;
 }
+
 
 /*————————————————————————列表转导图————————————————————————*/
 /*整个导图取消缩进*/
@@ -1345,4 +1351,8 @@ div *[custom-f="dt"]>[data-type="NodeListItem"]::after{
 svg{
     filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.516));  ;
     
+}
+
+.protyle-content {
+    overflow: overlay;
 }
