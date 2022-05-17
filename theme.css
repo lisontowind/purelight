@@ -1305,10 +1305,13 @@ div *[custom-f="dt"]>[data-type="NodeListItem"]::after{
 
 
 @keyframes menu {
-	0% {opacity:0;max-height:0;}
-	50% {opacity:0.5;max-height:50%;}
-	100% {opacity:1;max-height:100%
-	 }
+	0% {opacity:0;}
+	50% {opacity:0.5;}
+	100% {opacity:1;}
+}
+
+.protyle-toolbar {
+	animation: menu 0.15s ease-in-out;
 }
 
 
