@@ -49,34 +49,9 @@ function SubMenu(selectid,selecttype,className = 'b3-menu__submenu') {
 	node.appendChild(Removeth(selectid))
 	node.appendChild(Defaultth(selectid))
   }
-  // if(selecttype=="navigation-file"){
-  //   node.appendChild(A4Width(selectid))
-  //   node.appendChild(FullWidth(selectid))
-  // }
 return node;
 }
-// function A4Width(selectid){
-//   let button = document.createElement("button")
-//   button.className="b3-menu__item"
-//   button.setAttribute("data-node-id",selectid)
-//   button.setAttribute("custom-attr-name","f")
-//   button.setAttribute("custom-attr-value","A4")
 
-//   button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">A4大小</span>`
-//   button.onclick=ViewMonitor
-//   return button
-// }
-// function FullWidth(selectid){
-//   let button = document.createElement("button")
-//   button.className="b3-menu__item"
-//   button.setAttribute("data-node-id",selectid)
-//   button.setAttribute("custom-attr-name","f")
-//   button.setAttribute("custom-attr-value","full")
-
-//   button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">全宽</span>`
-//   button.onclick=ViewMonitor
-//   return button
-// }
 function GraphView(selectid){
   let button = document.createElement("button")
   button.className="b3-menu__item"
@@ -181,7 +156,7 @@ function MenuSeparator(className = 'b3-menu__separator') {
  * }
  * @returns {null} 没有找到块 ID */
 function getBlockSelected() {
-    let node_list = document.querySelectorAll('.protyle-wysiwyg--select');
+    let node_list = document.querySelectorAll('.protyle:not(.fn__none)>.protyle-content .protyle-wysiwyg--select');
     if (node_list.length === 1 && node_list[0].dataset.nodeId != null) return {
         id: node_list[0].dataset.nodeId,
         type: node_list[0].dataset.type,
@@ -216,7 +191,6 @@ function InsertMenuItem(selectid,selecttype){
     if(!selectview){
     commonMenu.insertBefore(ViewSelect(selectid,selecttype),readonly)
     commonMenu.insertBefore(MenuSeparator(),readonly)
-    commonMenu.insertBefore(MenuSeparator(),readonly)
     }
   }
 }
@@ -233,11 +207,8 @@ function ViewMonitor(event){
     attrs[attrName] =attrValue
   设置思源块属性(id,attrs)
 }
+
 setTimeout(()=>ClickMonitor(),1000)
-
-
-
-
 
 
 
@@ -382,12 +353,19 @@ function changeWidth(){
     for (i = 0; i < a.length; i++) {
       a[i].style.width = "17cm";
       a[i].style.boxShadow = "0 4px 20px 0 rgba(0, 0, 0, 0.08)";
+      a[i].style.setProperty('min-height','29.7cm');
+      a[i].style.setProperty('margin','25px auto 50px','important');
+      a[i].style.setProperty('border-top','solid 0px rgba(0, 0, 0, 0.08)');
     }
     config.width.enable = true;
   }else{
     for (i = 0; i < a.length; i++) {
       a[i].style.width = "calc(100% - 4cm)";
       a[i].style.boxShadow = "0 4px 20px 0 rgba(0, 0, 0, 0)";
+      a[i].style.removeProperty('min-height');
+      a[i].style.setProperty('margin','0px auto 0px','important');
+      a[i].style.setProperty('border-top','solid 5px rgba(0, 0, 0, 0.08)');
     }
   }
 }
+

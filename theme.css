@@ -38,7 +38,7 @@
     --b3-font-family-math: KaTeX_Math;
 
         /* 线条 */
-        --b3-border-color: rgba(0, 0, 0, .1);
+        /* --b3-border-color: rgba(0, 0, 0, .1); */
 
         /* 滚动条 */
         --b3-scroll-color: rgba(0, 0, 0, .2);
@@ -146,7 +146,7 @@
         --b3-protyle-inline-blockref-color: #660e7a;
     
         /* PDF */
-        --b3-pdf-selection: #d0e9c8;
+        --b3-pdf-selection: rgb(143, 169, 190);
         --b3-pdf-sidebar-width: 200px;
         --b3-pdf-offset: 0;
         --b3-pdf-background1: var(--b3-theme-error);
@@ -216,15 +216,16 @@
     mix-blend-mode: darken;
 }
 
-
-.textLayer,
-.pdf__resize {
-    mix-blend-mode: screen;
+.b3-typography div.hljs, .protyle-wysiwyg div.hljs {
+    background-color: #f8f9fa;
 }
 
-.b3-text-filed::-webkit-calendar-picker-indicator {
+.textLayer{
+    background-color: #ffffff;
+}
+ .b3-text-filed::-webkit-calendar-picker-indicator {
     filter: invert(1)
-}
+}  
 
 
 .protyle {
@@ -848,8 +849,8 @@ mark {
 }
 
 ::selection{
-    color: rgb(255, 255, 255);
-    background: rgb(101, 131, 156);
+    /* color: rgb(255, 255, 255); */
+    background: rgb(143, 169, 190);
 }
 .viewer-move{
 
@@ -1363,10 +1364,11 @@ svg{
 /* 设置正文背景颜色/A4纸大小  */
  .protyle-wysiwyg{
     width: calc(100% - 4cm);
-    margin: 25px auto 50px !important;
-    padding: 1.5cm !important;
+    margin: 0px auto 0px !important;
+    padding: 1cm 1.5cm 1cm 1.5cm !important;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0);
-    min-height: 29.7cm;
+    border-top: solid 5px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
 } 
 
 
