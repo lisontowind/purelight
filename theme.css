@@ -1349,8 +1349,7 @@ div *[custom-f="dt"]>[data-type="NodeListItem"]::after{
     color: inherit !important;
     background-color: var(--b3-theme-background) !important;
 }
-
-
+/* 外观修复 */
 svg{
     filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.516));  ;
     
@@ -1359,3 +1358,20 @@ svg{
 .protyle-content {
     overflow: overlay;
 }
+
+
+/* 设置正文背景颜色/A4纸大小  */
+ .protyle-wysiwyg{
+    width: calc(100% - 4cm);
+    margin: 25px auto 50px !important;
+    padding: 1.5cm !important;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0);
+    min-height: 29.7cm;
+} 
+
+
+/* 设置横版A4纸宽度 */
+/* .protyle-wysiwyg[custom-f~=A4heng] {
+    width: 29.7cm;
+    min-height: 21cm;
+} */

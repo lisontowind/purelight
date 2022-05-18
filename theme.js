@@ -49,9 +49,34 @@ function SubMenu(selectid,selecttype,className = 'b3-menu__submenu') {
 	node.appendChild(Removeth(selectid))
 	node.appendChild(Defaultth(selectid))
   }
+  // if(selecttype=="navigation-file"){
+  //   node.appendChild(A4Width(selectid))
+  //   node.appendChild(FullWidth(selectid))
+  // }
 return node;
 }
+// function A4Width(selectid){
+//   let button = document.createElement("button")
+//   button.className="b3-menu__item"
+//   button.setAttribute("data-node-id",selectid)
+//   button.setAttribute("custom-attr-name","f")
+//   button.setAttribute("custom-attr-value","A4")
 
+//   button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">A4大小</span>`
+//   button.onclick=ViewMonitor
+//   return button
+// }
+// function FullWidth(selectid){
+//   let button = document.createElement("button")
+//   button.className="b3-menu__item"
+//   button.setAttribute("data-node-id",selectid)
+//   button.setAttribute("custom-attr-name","f")
+//   button.setAttribute("custom-attr-value","full")
+
+//   button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">全宽</span>`
+//   button.onclick=ViewMonitor
+//   return button
+// }
 function GraphView(selectid){
   let button = document.createElement("button")
   button.className="b3-menu__item"
@@ -191,6 +216,7 @@ function InsertMenuItem(selectid,selecttype){
     if(!selectview){
     commonMenu.insertBefore(ViewSelect(selectid,selecttype),readonly)
     commonMenu.insertBefore(MenuSeparator(),readonly)
+    commonMenu.insertBefore(MenuSeparator(),readonly)
     }
   }
 }
@@ -207,5 +233,161 @@ function ViewMonitor(event){
     attrs[attrName] =attrValue
   设置思源块属性(id,attrs)
 }
-
 setTimeout(()=>ClickMonitor(),1000)
+
+
+
+
+
+
+
+  // 在工具栏添加按钮
+
+function toolbarItemInit(toolbarConfig, handler,svgClassIndex = 0) {
+  let fn = () => setTimeout(handler, 0);
+
+  // 在工具栏添加按钮
+  let node = toolbarItemInsert(toolbarConfig);
+  let listener = (e) => e.addEventListener('click', (_) => fn());
+
+  // 是否禁用该按钮
+  toolbarItemChangeStatu(
+      toolbarConfig.id,
+      toolbarConfig.enable,
+      undefined,
+      'BUTTON',
+      node,
+      undefined,
+      listener,
+  )
+
+  // 是否设置颜色
+  if (svgClassIndex > 0 && svgClassIndex < svgClassList.length) {
+      toolbarItemChangeStatu(
+          toolbarConfig.id,
+          true,
+          true,
+          'SVG',
+          node,
+          svgClassIndex,
+      )
+  }
+  return fn;
+}
+
+function toolbarItemChangeStatu(
+  id,
+  enable = false,
+  active = null,
+  mode = 'DIV',
+  node = null,
+  svgClassIndex = 0,
+  listener = null,
+) {
+  node = node || document.getElementById(id);
+  if (node) {
+      switch (mode.toUpperCase()) {
+          case 'SVG':
+              if (active !== null && svgClassIndex > 0) {
+                  if (active) {
+                      node.firstElementChild.classList.add(svgClassList[svgClassIndex]);
+                  }
+                  else {
+                      node.firstElementChild.classList.remove(svgClassList[svgClassIndex]);
+                  }
+                  if (custom.theme.toolbar[id]) {
+                      custom.theme.toolbar[id].state = active;
+                      setTimeout(async () => saveCustomFile(custom), 0);
+                  }
+              }
+              break;
+          case 'DIV':
+          case 'BUTTON':
+          default:
+              if (active !== null) {
+                  if (active) {
+                      node.classList.add('toolbar__item--active');
+                  }
+                  else {
+                      node.classList.remove('toolbar__item--active');
+                  }
+                  if (custom.theme.toolbar[id]) {
+                      custom.theme.toolbar[id].state = active;
+                      setTimeout(async () => saveCustomFile(custom), 0);
+                  }
+              }
+
+              if (enable) {
+                  if (node.classList.contains('toolbar__item--disabled')) {
+                      node.classList.remove('toolbar__item--disabled');
+                  }
+                  if (typeof listener === 'function') listener(node);
+              }
+              else {
+                  if (!node.classList.contains('toolbar__item--disabled')) {
+                      node.classList.add('toolbar__item--disabled');
+                      recreateNode(node);
+                  }
+              }
+              break;
+      }
+  }
+}
+
+function toolbarItemInsert(toolbarConfig) {
+  let node = createToolbarItem(toolbarConfig);
+  let toolbar = document.getElementById('toolbar');
+  let referenceNode = document.getElementById('windowControls');
+  return toolbar.insertBefore(node, referenceNode);
+}
+
+function createToolbarItem(toolbarConfig) {
+  let item = document.createElement('BUTTON');
+  let label = toolbarConfig.label.other;
+  item.id = toolbarConfig.id;
+  item.className = "toolbar__item b3-tooltips b3-tooltips__sw";
+  item.setAttribute('aria-label', label);
+  item.innerHTML = `<svg><use xlink:href="${toolbarConfig.icon}"></use></svg>`;
+  return item;
+}
+var config = {
+  width: {
+    enable:false,
+    toolbar: { // 菜单栏
+        enable: true,
+        display: true,
+        id: 'toolbar-theme-style-render',
+        label: {
+            zh_CN: '启用A4视图',
+            zh_CNT: null,
+            fr_FR: null,
+            en_US: null,
+            other: 'A4',
+        },
+        icon: '#iconFile',
+        index: 3,
+    },
+  },
+}
+
+let Fn_width = toolbarItemInit(
+  config.width.toolbar,
+  () => changeWidth(),
+);
+
+
+function changeWidth(){
+  var a = document.querySelectorAll(".protyle-wysiwyg");
+  if (a[0].style.width !== "17cm"){
+    for (i = 0; i < a.length; i++) {
+      a[i].style.width = "17cm";
+      a[i].style.boxShadow = "0 4px 20px 0 rgba(0, 0, 0, 0.08)";
+    }
+    config.width.enable = true;
+  }else{
+    for (i = 0; i < a.length; i++) {
+      a[i].style.width = "calc(100% - 4cm)";
+      a[i].style.boxShadow = "0 4px 20px 0 rgba(0, 0, 0, 0)";
+    }
+  }
+}
