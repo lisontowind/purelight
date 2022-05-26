@@ -886,7 +886,7 @@ mark {
 .protyle-wysiwyg div[fold="1"][data-type="NodeHeading"]:before {
     content: "";
     height: 100% !important;
-    background: #000000;
+    background: #00000010;
     left: -18px !important;
     top: 0% !important;
     border-radius: 3px;
