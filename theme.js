@@ -156,13 +156,22 @@ function MenuSeparator(className = 'b3-menu__separator') {
  * }
  * @returns {null} 没有找到块 ID */
 function getBlockSelected() {
+  if(document.querySelectorAll('.layout__wnd--active .protyle-wysiwyg--select').length > 0){
+    let node_list = document.querySelectorAll('.layout__wnd--active .protyle:not(.fn__none)>.protyle-content .protyle-wysiwyg--select');
+    if (node_list.length === 1 && node_list[0].dataset.nodeId != null) return {
+      id: node_list[0].dataset.nodeId,
+      type: node_list[0].dataset.type,
+      subtype: node_list[0].dataset.subtype,
+      };
+  }else{
     let node_list = document.querySelectorAll('.protyle:not(.fn__none)>.protyle-content .protyle-wysiwyg--select');
     if (node_list.length === 1 && node_list[0].dataset.nodeId != null) return {
-        id: node_list[0].dataset.nodeId,
-        type: node_list[0].dataset.type,
-        subtype: node_list[0].dataset.subtype,
-    };
-    return null;
+      id: node_list[0].dataset.nodeId,
+      type: node_list[0].dataset.type,
+      subtype: node_list[0].dataset.subtype,
+      };
+  }
+  return null;
 }
 
 function ClickMonitor () {

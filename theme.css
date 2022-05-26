@@ -38,7 +38,7 @@
     --b3-font-family-math: KaTeX_Math;
 
         /* 线条 */
-        /* --b3-border-color: rgba(0, 0, 0, .1); */
+        --b3-border-color: rgba(0, 0, 0, .1); 
 
         /* 滚动条 */
         --b3-scroll-color: rgba(0, 0, 0, .2);
@@ -199,7 +199,7 @@
     --custom-quote-r: "⸥";
 
     /* 列表颜色 */
-    --b3-border-color: rgba(230, 230, 230, .1);
+    --b3-border-color: rgba(0, 0, 0, 0.1);
 	--surface-border-color: rgba(69, 74, 77);
 	--b3-color--square: var(--b3-border-color);
 	--b3-border-daotu: 2px solid var(--surface-border-color);
@@ -885,13 +885,14 @@ mark {
 /* 展开优化 */
 .protyle-wysiwyg div[fold="1"][data-type="NodeHeading"]:before {
     content: "";
-    height: 100%;
-    background: var(--b3-border-color);
-    left: -18px;
-    top: 0%;
+    height: 100% !important;
+    background: #000000;
+    left: -18px !important;
+    top: 0% !important;
     border-radius: 3px;
-    margin-top: 0%;
+    margin-top: 0% !important;
 }
+
 
 /* 过长子标题名显示样式 */
 /* .sy__outline .b3-list-item__text {
@@ -942,9 +943,10 @@ mark {
     box-shadow: 0 0 0 0 !important;
 }
 
-.layout{
+.layout>.fn__flex:nth-child(3){
     border-top: 1px solid #cccccc;
-} 
+    z-index: 1;
+}
 
 .dock#dockLeft { 
     border-top: 1px solid #cccccc !important;
@@ -961,13 +963,13 @@ mark {
     border-top: 1px solid #cccccc;
 }
 
-.body--win32>.fn__flex-1:nth-child(5){
+/* .body--win32>.fn__flex-1:nth-child(5){
     overflow: hidden !important;
 }
 
 #layouts > .fn__flex:nth-child(3) {
     overflow-y: hidden !important;
-}
+} */
 #layouts >.layout__resize:nth-child(5){
     margin: -4px 0;
 }
