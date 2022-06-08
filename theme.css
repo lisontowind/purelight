@@ -393,7 +393,7 @@
     background-color: #00000000;
     border-bottom: 1px solid #00000040;
 }
-.fn__flex-column>.fn__flex-1.fn__flex:last-child{
+.fn__flex-column>.fn__flex-1.fn__flex:last-child:not(:first-child){
     border-top: 1px solid #cccccc;
 }
 .b3-list.fn__flex-column{
