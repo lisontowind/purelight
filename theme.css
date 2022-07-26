@@ -1364,7 +1364,7 @@ svg{
 
 
 /* 设置正文背景颜色/A4纸大小  */
- .protyle-wysiwyg{
+.protyle-wysiwyg{
     width: calc(100% - 4cm);
     margin: 0px auto 0px !important;
     padding: 1cm 1.5cm 1cm 1.5cm !important;
@@ -1372,6 +1372,10 @@ svg{
     border-top: solid 5px rgba(0, 0, 0, 0.08);
     transition: 0.3s;
 } 
+
+.status {
+    border-top: 1px solid #cccccc !important;
+}
 
 
 /* 设置横版A4纸宽度 */

@@ -5,8 +5,6 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/lisontowind/purelight)
 ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hy/lisontowind/purelight?label=hits)
 
-# 1.0.8 
-
 ## 主要特性
 
 1. 简洁线条界面
@@ -15,6 +13,15 @@
 4. 过渡动画优化
 5. 引入列表转看板、导图和表格功能（搬运notion-theme）
 6. 右上角图标按钮可切换A4纸显示模式（参考Chrome-A4与Dark+）
+
+## 1.0.10
+
+## 修复BUG
+
+1. 底栏bug
+2. 与自适应宽度样式不匹配的bug
+
+## 1.0.8
 
 ## 修复BUG
 
